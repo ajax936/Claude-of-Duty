@@ -1,0 +1,10 @@
+export { ConfigSystem } from './config.js';
+export { FactionSystem, FACTION_COLORS, FACTION_ROLES, ROLE_DEFINITIONS, AI_PRESETS, allocateRoles } from './factions.js';
+export { CommandSystem, COMMAND_CATEGORIES, COMMANDS, getCommandById, getCommandsByCategory, getAllCommands, findCommandByVoice } from './commands.js';
+export { InventorySystem, WEAPON_CATEGORIES, RARITY_TIERS, LOOT_TABLES, STARTER_LOADOUTS } from './inventory.js';
+export { UltimateSystem, ULTIMATE_EFFECTS, ULTIMATE_CORES, ULTIMATE_MODIFIERS, ULTIMATE_FINISHERS, getEffectById, getCoreById, getModifierById, getFinisherById, validateUltimateBuild, ULTIMATE_HIT_RULES, calculateUltimateDamage } from './ultimates.js';
+export { VehicleSystem, VEHICLE_TYPES, MOUNTED_GUNS } from './vehicles.js';
+export { ScoringSystem } from './scoring.js';
+export { ProfileSystem, PROFILE_SCHEMA_VERSION, DEFAULT_PROFILE, createProfile, createCharacter } from './profiles.js';
+export { MatchSystem, MATCH_PHASES } from './match.js';
+export { TALENT_TREES, TALENT_TREE_ORDER, STARTING_PASSIVES, getAllTalents, getTalentsByTree, getTalentById, validateTalentPurchase, calculatePrimaryTree, computeDerivedStats, TALENT_CONFIG_DEFAULTS } from './talents.js';

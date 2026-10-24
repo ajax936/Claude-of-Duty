@@ -13,6 +13,16 @@ import { AiSystem } from './ai/index.js';
 import { UiSystem } from './ui/index.js';
 import { AudioSystem } from './audio/index.js';
 
+import { ConfigSystem } from './gameplay/config.js';
+import { FactionSystem } from './gameplay/factions.js';
+import { CommandSystem } from './gameplay/commands.js';
+import { InventorySystem } from './gameplay/inventory.js';
+import { UltimateSystem } from './gameplay/ultimates.js';
+import { VehicleSystem } from './gameplay/vehicles.js';
+import { ScoringSystem } from './gameplay/scoring.js';
+import { ProfileSystem } from './gameplay/profiles.js';
+import { MatchSystem } from './gameplay/match.js';
+
 import { installShotApi } from './dev/shots.js';
 import { prewarm } from './core/prewarm.js';
 
@@ -45,7 +55,16 @@ engine
   .add(FxSystem)
   .add(AiSystem)
   .add(UiSystem)
-  .add(AudioSystem);
+  .add(AudioSystem)
+  .add(ConfigSystem)
+  .add(FactionSystem)
+  .add(CommandSystem)
+  .add(InventorySystem)
+  .add(UltimateSystem)
+  .add(VehicleSystem)
+  .add(ScoringSystem)
+  .add(ProfileSystem)
+  .add(MatchSystem);
 
 try {
   await engine.init();
@@ -79,6 +98,10 @@ const shotApi = installShotApi(engine, { capture, lockstep });
 const warmup = params.get('prewarm') === '0' ? { ok: false, reason: 'disabled by ?prewarm=0' } : await prewarm(engine);
 console.info('[boot] prewarm', warmup);
 window.__PREWARM__ = warmup;
+
+// Start the match system
+const match = engine.ctx.get('match');
+match.startLobby();
 
 engine.start();
 
