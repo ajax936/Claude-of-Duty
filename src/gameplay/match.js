@@ -29,7 +29,7 @@ export class MatchSystem {
     this.phase = MATCH_PHASES.LOBBY;
     this.phaseTimer = 0;
     this.matchConfig = null;
-    this._rng = new Rng(0xMATCH);
+    this._rng = new Rng(0xDADA);
     this.mapVote = { options: [], votes: new Map(), winningMap: null };
     this.deploymentOptions = [];
   }
